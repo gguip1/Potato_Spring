@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://gguip7554.cafe24.com:3306/gguip7554
+    username: gguip7554
+    password: p7554!potato
+    driver-class-name: org.mariadb.jdbc.Driver
