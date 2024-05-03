@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>DB_TEST</title>
+</head>
+<body>
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이미지</th>
+                <th>제목</th>
+                <th>줄거리</th>
+                <th>감독</th>
+                <th>배우</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="content : ${contents}">
+                <td th:text="${content.id}"></td>
+                <td th:text="${content.img}"></td>
+                <td th:text="${content.title}"></td>
+                <td th:text="${content.description}"></td>
+                <td th:text="${content.director}"></td>
+                <td th:text="${content.actor}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>

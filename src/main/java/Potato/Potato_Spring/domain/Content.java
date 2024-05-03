@@ -48,9 +48,7 @@ public class Content {
         this.director = director;
     }
 
-    public String getActor() {
-        return actor;
-    }
+    public String getActor() { return actor; }
 
     public void setActor(String actor) {
         this.actor = actor;

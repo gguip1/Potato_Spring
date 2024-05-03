@@ -59,7 +59,11 @@ public class JdbcTemplateContentRepository implements ContentRepository{
         return (rs, rowNum) -> {
             Content content = new Content();
             content.setId(rs.getInt("id"));
+            content.setImg(rs.getString("img"));
             content.setTitle(rs.getString("title"));
+            content.setDescription(rs.getString("description"));
+            content.setDirector(rs.getString("director"));
+            content.setActor(rs.getString("actor"));
             return content;
         };
     }
