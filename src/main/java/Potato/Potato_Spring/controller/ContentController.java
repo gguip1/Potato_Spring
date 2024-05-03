@@ -38,10 +38,16 @@ public class ContentController {
         return "redirect:/";
     }
 
-    @GetMapping("/members")
+    @GetMapping("/contents")
     public String list(Model model){
         List<Content> contents = contentService.findContents();
         model.addAttribute("contents", contents);
-        return "members/memberlist";
+        System.out.println(contents.get(0).getId());
+        System.out.println(contents.get(0).getTitle());
+        System.out.println(contents.get(0).getImg());
+        System.out.println(contents.get(0).getDescription());
+        System.out.println(contents.get(0).getDirector());
+        System.out.println(contents.get(0).getActor());
+        return "contents/movie_test";
     }
 }
