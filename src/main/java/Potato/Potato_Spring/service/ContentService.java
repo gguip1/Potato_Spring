@@ -31,12 +31,6 @@ public class ContentService {
                 });
     }
 
-    public List<Content> findAllByPage(String tableName, int page, int pagingUnit){
-        return contentRepository.findAllByPage(tableName, page, pagingUnit);
-    }
-    public long countAll(String tableName){
-        return contentRepository.countAll(tableName);
-    }
     public List<Content> findContents(){
         return contentRepository.findAll();
     }
