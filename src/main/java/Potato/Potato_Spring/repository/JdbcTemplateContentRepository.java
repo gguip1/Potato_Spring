@@ -55,6 +55,33 @@ public class JdbcTemplateContentRepository implements ContentRepository{
         return jdbcTemplate.query("select * from movie_test", contentRowMapper());
     }
 
+    /**
+     * tableName : 검색하고자 하는 테이블 명
+     * page : 페이지수
+     * page는 10개씩 조회
+     *
+     * @return
+     */
+    @Override
+    public List<Content> findAllByPage(String tableName, int page, int pagingUnit){
+        return jdbcTemplate.query("SELECT * FROM " + tableName + " ORDER BY id ASC LIMIT " + pagingUnit + " OFFSET " + page * pagingUnit, contentRowMapper());
+    }
+
+    /**
+     * 테이블 갯수
+     * findAllByPage에서 페이지 개수를 확인하기 위함
+     * @return
+     */
+    @Override
+    public long countAll(String tableName){
+//        List<Content> result = jdbcTemplate.query("SELECT COUNT(*) FROM " + tableName, contentRowMapper());
+        List<Content> result = jdbcTemplate.query("SELECT * FROM " + tableName, contentRowMapper());
+        return result.stream().count();
+    }
+
+    /**
+     * Content 형식의 쿼리 result 맵핑
+     */
     private RowMapper<Content> contentRowMapper(){
         return (rs, rowNum) -> {
             Content content = new Content();
@@ -67,4 +94,9 @@ public class JdbcTemplateContentRepository implements ContentRepository{
             return content;
         };
     }
+
+    /**
+     *
+     */
+
 }
