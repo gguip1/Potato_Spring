@@ -9,6 +9,8 @@ import java.util.Optional;
 @Repository
 public interface ContentRepository {
     Content save(Content content);
+    List<Content> findAllByPage(String tableName, int page, int pagingUnit);
+    long countAll(String table);
     Optional<Content> findById(int id);
     Optional<Content> findByName(String title);
     List<Content> findAll();
