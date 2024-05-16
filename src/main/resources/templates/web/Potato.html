@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Potato</title>
+  <link rel="stylesheet" th:href="@{/web/css/style.css}">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+
+      <h1 class="logo">
+            <img src="web/resources/logo.webp" class="potato-image" alt="logo">
+            Potato
+      </h1>
+
+      <nav>
+        <ul>
+          <li><a href="guide.html">가이드</a></li>
+          <li><a href="join.html">참가 안내</a></li>
+          <li><a href="notice.html">알림 마당</a></li>
+          <li><a href="last.html" >지난 박람회</a></li>
+        </ul>
+      </nav>
+
+    </header>
+    <p align="middle">
+<!--      <video src="web/resources/main.mp4" width="900px" height="600px" autoplay muted loop>-->
+
+<!--      </video>-->
+    </p>
+
+
+    <div id="slider">
+
+        <ul class="slides">
+          <li class="slide"><img src="img/106253_56184_5040.png" alt=""></li>
+          <li class="slide"><img src="img/232020500322.jpg" alt=""></li>
+          <li class="slide"><img src="img/20210603062117.jpg" alt=""></li>
+          <li class="slide"><img src="img/2021111909552578453_1.jpg" alt=""></li>
+          <li class="slide"><img src="img/img.jpg" alt=""></li>
+          <li class="slide"><img src="img/106253_56184_5040.png" alt=""></li>
+        </ul>
+
+      </div>
+
+
+      <section id="intro">
+
+        <div class="title">
+          <h2>진행중인 박람회</h2>
+        </div>
+
+
+        <div class="tabs">
+          <ul class="tabs-list">
+            <li class="active"><a href="#tab1"> IT </a></li>
+            <li><a href="#tab2"> 패션 </a></li>
+            <li><a href="#tab3"> 공연 </a></li>
+          </ul>
+
+          <div id="tab1" class="tab active">
+
+          </div>
+          <div id="tab2" class="tab">
+
+          </div>
+
+
+          <div id="tab3" class="tab">
+
+
+
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <div class="clearfix"></div>
+
+
+      <section id="team">
+
+        <div class="title">
+          <h2>Partners</h2>
+        </div>
+
+        <div class="row">
+          <div class="team-intro">
+            <img src="web/resources/google.jpg">
+            <h3>GOOGLE</h3>
+            <p>
+              설명 1
+            </p>
+          </div>
+
+
+          <div class="team-intro">
+            <img src="web/resources/naver.jpg">
+            <h3>Naver</h3>
+            <p>
+             설명 2
+             </p>
+          </div>
+          <div class="team-intro">
+            <img src="web/resources/amazon.jpg">
+            <h3>Amazon</h3>
+            <p>
+              설명 3
+            </p>
+          </div>
+        </div>
+
+
+      </section>
+
+
+      <section id="photo">
+
+        <div class="title">
+          <h2>Potato ? </h2>
+          <p>
+
+          </p>
+          <br>
+          <h3>1. 2024 team building </h3><br>
+          <h3>2. Awesome </h3><br>
+          <h3>3. Exhibition </h3>
+
+        </div>
+
+        <div class="slider">
+
+          <div class="slide active"></div>
+          <div class="slide"></div>
+          <div class="slide"></div>
+
+        </div>
+
+
+        <p class="left-arrow"></p>
+        <p class="right-arrow"></p>
+
+      </section>
+
+
+
+      <footer id="footer">
+      </footer>
+
+
+    </div>
+
+    <script src="jquery-3.5.1.js"></script>
+    <script src="index.js"></script>
+
+  </body>
+
+  </html>
