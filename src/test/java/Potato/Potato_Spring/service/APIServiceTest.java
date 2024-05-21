@@ -1,24 +1,22 @@
 package Potato.Potato_Spring.service;
 
 import Potato.Potato_Spring.domain.Content;
-import Potato.Potato_Spring.repository.ContentRepository;
+import Potato.Potato_Spring.repository.APIRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Transactional
-public class ContentServiceTest {
+public class APIServiceTest {
     @Autowired
-    ContentService contentService;
+    APIService APIService;
     @Autowired
-    ContentRepository contentRepository;
+    APIRepository APIRepository;
 
     @Test
     void insert(){
@@ -29,9 +27,9 @@ public class ContentServiceTest {
         content.setDirector("");
         content.setActor("");
 
-        int saveid = contentService.join(content);
+        int saveid = APIService.join(content);
 
-        Content findContent = contentService.findContent(saveid).get();
+        Content findContent = APIService.findContent(saveid).get();
         assertThat(content.getTitle()).isEqualTo(findContent.getTitle());
     }
 
@@ -51,8 +49,8 @@ public class ContentServiceTest {
         content_2.setDirector("");
         content_2.setActor("");
 
-        contentService.join(content_1);
-        IllegalStateException e = assertThrows(IllegalStateException.class, () -> contentService.join(content_2));
+        APIService.join(content_1);
+        IllegalStateException e = assertThrows(IllegalStateException.class, () -> APIService.join(content_2));
     }
 
 //    @Test

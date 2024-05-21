@@ -1,8 +1,8 @@
 package Potato.Potato_Spring;
 
-import Potato.Potato_Spring.repository.ContentRepository;
-import Potato.Potato_Spring.repository.JdbcTemplateContentRepository;
-import Potato.Potato_Spring.service.ContentService;
+import Potato.Potato_Spring.repository.APIRepository;
+import Potato.Potato_Spring.repository.JdbcTemplateAPIRepository;
+import Potato.Potato_Spring.service.APIService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,11 +17,11 @@ public class SpringConfig {
         this.dataSource = dataSource;
     }
 
-    public ContentService contentService(){
-        return new ContentService(contentRepository());
+    public APIService contentService(){
+        return new APIService(contentRepository());
     }
 
-    public ContentRepository contentRepository(){
-        return new JdbcTemplateContentRepository(dataSource);
+    public APIRepository contentRepository(){
+        return new JdbcTemplateAPIRepository(dataSource);
     }
 }
