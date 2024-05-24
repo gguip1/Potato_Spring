@@ -8,13 +8,15 @@ import Potato.Potato_Spring.domain.Genre;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface APIRepository {
-    List<Content> findAllByPage(String tableName, int page, int pagingUnit);
-    List<Count> countAll(String table);
-    List<Genre> findGenres();
 
-    List<ContentGenres> findContentGenres(String tableName, int genre_id);
+    List<Count> getCount(String query);
+
+    List<Genre> getGenre(String query);
+
+    List<Content> getContent(String query);
+
+    List<ContentGenres> getContentGenre(String query);
 }

@@ -8,51 +8,38 @@ import Potato.Potato_Spring.domain.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.*;
 
 @Repository
-public class JdbcTemplateAPIRepository implements APIRepository {
+public class JdbcAPIRepository implements APIRepository {
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public JdbcTemplateAPIRepository(DataSource dataSource) {
+    public JdbcAPIRepository(DataSource dataSource) {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
-    /**
-     * tableName : 검색하고자 하는 테이블 명
-     * page : 페이지수
-     * page는 10개씩 조회
-     *
-     */
-    @Override
-    public List<Content> findAllByPage(String tableName, int page, int pagingUnit){
-        return jdbcTemplate.query("SELECT * FROM " + tableName + " ORDER BY id ASC LIMIT " + pagingUnit + " OFFSET " + page * pagingUnit, contentRowMapper());
-    }
 
-    /**
-     * 테이블 갯수
-     * findAllByPage에서 페이지 개수를 확인하기 위함
-     *
-     */
     @Override
-    public List<Count> countAll(String tableName){
-//        List<Content> result = jdbcTemplate.query("SELECT COUNT(*) FROM " + tableName, contentRowMapper());
-        return jdbcTemplate.query("SELECT count(*) as cnt FROM " + tableName, countRowMapper());
+    public List<Count> getCount(String query){
+        return jdbcTemplate.query(query, countRowMapper());
     }
 
     @Override
-    public List<Genre> findGenres() {
-        return jdbcTemplate.query("SELECT * FROM genre", genreRowMapper());
+    public List<Genre> getGenre(String query){
+        return jdbcTemplate.query(query, genreRowMapper());
     }
 
     @Override
-    public List<ContentGenres> findContentGenres(String tableName, int genre_id) {
-        return jdbcTemplate.query("SELECT * FROM " + tableName + " WHERE genre_id = " + genre_id, contentGenresRowMapper());
+    public List<Content> getContent(String query){
+        return jdbcTemplate.query(query, contentRowMapper());
+    }
+
+    @Override
+    public List<ContentGenres> getContentGenre(String query){
+        return jdbcTemplate.query(query, contentGenresRowMapper());
     }
 
     /**

@@ -1,7 +1,7 @@
 package Potato.Potato_Spring;
 
 import Potato.Potato_Spring.repository.APIRepository;
-import Potato.Potato_Spring.repository.JdbcTemplateAPIRepository;
+import Potato.Potato_Spring.repository.JdbcAPIRepository;
 import Potato.Potato_Spring.service.APIService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +22,6 @@ public class SpringConfig {
     }
 
     public APIRepository contentRepository(){
-        return new JdbcTemplateAPIRepository(dataSource);
+        return new JdbcAPIRepository(dataSource);
     }
 }

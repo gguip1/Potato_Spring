@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class APIService {
@@ -20,18 +19,20 @@ public class APIService {
         this.APIRepository = APIRepository;
     }
 
-    public List<Count> countAll(String tableName){
-        return APIRepository.countAll(tableName);
-    }
-    public List<Content> findAllByPage(String tableName, int page, int pagingUnit){
-        return APIRepository.findAllByPage(tableName, page, pagingUnit);
+    public List<Count> getCount(String query){
+        return APIRepository.getCount(query);
     }
 
-    public List<Genre> findGenres(){
-        return APIRepository.findGenres();
-    };
-
-    public List<ContentGenres> findContenteGenres(String tableName, int genre_id) {
-        return APIRepository.findContentGenres(tableName, genre_id);
+    public List<Genre> getGenre(String query){
+        return APIRepository.getGenre(query);
     }
+
+    public List<Content> getContent(String query){
+        return APIRepository.getContent(query);
+    }
+
+    public List<ContentGenres> getContentGenre(String query){
+        return APIRepository.getContentGenre(query);
+    }
+
 }
