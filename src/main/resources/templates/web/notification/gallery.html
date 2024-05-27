@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="header/header.css">
+  <link rel="stylesheet" href="footer/footer.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="images/logo.webp" type="image/x-icon" />
+  <script src="src/header_footer.js"></script>
+  <title>갤러리</title>
+</head>
+
+<body>
+  <th:block th:replace="~{fragments/header :: header}">  </th:block>
+
+  <main>
+    <body>
+      <section id="home">
+        <h2 class="home__title"> 갤러리 </h2>
+        <hr class ="hr1" noshade>
+      </br>
+      <div class="gallery">
+        <div class="gallery__item">
+          <img src="images/gallery/image1.jpg" class="gallery_img">
+          <h3>안전산업 박람회</h3>
+          <p>2024.05.25</p>
+        </div>
+        <div class="gallery__item">
+          <img src="images/gallery/image2.jpg" class="gallery_img">
+          <h3>스타트업 박람회</h3>
+          <p>2024.05.24</p>
+        </div>
+        <div class="gallery__item">
+          <img src="images/gallery/image3.jpg" class="gallery_img">
+          <h3>종합부동산 박람회</h3>
+          <p>2024.05.20</p>
+        </div>
+        <div class="gallery__item">
+          <img src="images/gallery/image4.jpg" class="gallery_img">
+          <h3>서울사랑 박람회</h3>
+          <p>2024.05.19</p>
+        </div>
+        <div class="gallery__item">
+          <img src="images/gallery/image5.jpg" class="gallery_img">
+          <h3>제목</h3>
+          <p>날짜</p>
+        </div>   
+        <div class="gallery__item">
+          <img src="images/gallery/image6.jpg" class="gallery_img">
+          <h3>제목</h3>
+          <p>날짜</p>
+        </div>
+        <div class="gallery__item">
+          <img src="images/gallery/image7.jpg" class="gallery_img">
+          <h3>제목</h3>
+          <p>날짜</p>
+        </div>
+        <div class="gallery__item">
+          <img src="images/gallery/image8.jpg" class="gallery_img">
+          <h3>제목</h3>
+          <p>날짜</p>
+        </div>
+        <div class="gallery__item">
+          <img src="images/gallery/image9.jpg" class="gallery_img">
+          <h3>제목</h3>
+          <p>날짜</p>
+        </div>
+      </div>
+        <br>
+        <div class="center number">
+          <a href  = "">◀ 이전</a> 
+          <a href  = ""><strong>1</strong></a>
+          <a href  = "">2</a>  
+          <a href  = "">3</a>  
+          <a href  = "">4</a>     
+          <a href  = "">다음 ▶</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <th:block th:replace="~{fragments/footer :: footer}">  </th:block>
+</body>
+</html>

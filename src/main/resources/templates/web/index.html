@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,48 +31,17 @@
     <script type="module" src="src/main.js" defer></script>
     <script type="module" src="src/projects.js" defer></script>
     <script type="module" src="src/active_menu.js" defer></script>
-  </head>
-  <body>
+</head>
+<body>
     <!-- Header -->
-    <header class="header">
-      <div class="header__logo">
-        <img class="header__logo__img" src="images/logo.webp" alt="logo" />
-        <h1 class="header__logo__title"><a href="#">potato</a></h1>
-      </div>
-
-      <!-- navbar-->
-      <nav class="header__nav">
-        <div class="container">
-          <ul class="header__menu">
-            <li><a class="header__menu__item active" href="/redirectToIndex">Home</a></li>
-            <li><a class="header__menu__item" href="/guide">가이드</a></li>
-            <li><a class="header__menu__item" href="#skills">참가안내</a></li>
-            <li><a class="header__menu__item" href="/info">알림 마당</a></li>
-            <li class="dropdown"><li>
-              <a class="header__menu__item" href="#work">지난 박람회</a>
-              <ul class="dropdown-content">
-                <li><a href="#">2023</a></li>
-                <li><a href="#">2022</a></li>
-                <li><a href="#">2021</a></li>
-              </ul>
-            </li>
-          </li>
-        </ul>
-      </div>
-    </nav>
-      <button class="header__toggle" aria-label="navigation menu toggle">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </header>
+    <th:block th:replace="~{fragments/header :: header}">  </th:block>
 
     <!-- Main -->
     <main>
       <!-- Home -->
       <section id="home">
         <div class="home__container">
-          <img
-            class="home__avatar"
-          />
+          <img class="home__avatar" />
           <h2 class="home__title">
             Video <br />
             <strong class="home__title--strong"></strong>
@@ -106,7 +75,6 @@
           </li>
         </ul>
       </section>
-
 
       <!-- show -->
       <section id="show" class="section">
@@ -253,7 +221,7 @@
   
         <div class="row">
           <div class="surpporters">
-            <img src="images/supporters/google.jpg">
+            <img src="images/surpporters/google.jpg">
             <h3>GOOGLE</h3>
             <p>
               현재 전 세계에서 가장 큰 인터넷 기업 중 하나이자 인터넷 관련 서비스와 제품을 전문으로 하는 미국의 다국적 기술 기업이다. 
@@ -263,7 +231,7 @@
   
   
           <div class="surpporters">
-            <img src="images/supporters/naver.jpg">
+            <img src="images/surpporters/naver.jpg">
             <h3>Naver</h3>
             <p>
               1999년 6월에 설립된 대한민국 대표 인터넷 회사. 
@@ -271,7 +239,7 @@
             </p>
           </div>
           <div class="surpporters">
-            <img src="images/supporters/amazon.jpg">
+            <img src="images/surpporters/amazon.jpg">
             <h3>Amazon</h3>
             <p>
               제프 베조스가 1994년 시애틀에 설립한 미국의 전자상거래를 기반으로 한 IT 기업. 
@@ -323,7 +291,7 @@
               src="images/testimonials/people(3).jpg"
               alt="people3"
               class="testimonial__img"
-            />s
+            />
             <div class="testimonial__bubble">
               <p>
                 이렇게 도움되는 사이트 없이 전에는 어떻게 살았는지 몰라요.
@@ -339,20 +307,12 @@
       </section>
       <!-- Arrow up -->
       <aside>
-        <a class="arrow-up" href="/redirectToIndex" title="back to top">
+        <a class="arrow-up" href="#" title="back to top">
           <i class="fa-solid fa-arrow-up"></i>
         </a>
       </aside>
     </main>
     <!-- Footer -->
-    <footer id="contact" class="section">
-      <div class="max-container">
-        <h2 class="title">About &#39; potato</h2>
-        <p class="description">Team building 2024.03.14</p>
-        
-        </ul>
-        <p>ⓒpotato - All rights reserved</p>
-      </div>
-    </footer>
-  </body>
+    <th:block th:replace="~{fragments/footer :: footer}">  </th:block>
+</body>
 </html>

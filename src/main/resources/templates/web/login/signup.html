@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="css/signup.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <th:block th:replace="~{fragments/header :: header}">  </th:block>
+    <section>
+        <div class="wrapper">
+            <form action="">
+                <h1>회원가입</h1>
+                <div class="input_wrapper">
+                    <label for="" class="label_text">아이디</label>
+                    <input type="text" required>
+                </div>
+                <div class="input_wrapper">
+                    <label for="" class="label_text">비밀번호</label>
+                    <input type="password" required>
+                </div>
+                <div class="input_wrapper">
+                    <label for="" class="label_text">비밀번호 확인</label>
+                    <input type="password" required>
+                </div>
+                <div class="input_wrapper">
+                    <label for="" class="label_text">이름</label>
+                    <input type="password" required>
+                </div>
+                <div class="input_wrapper">
+                    <label for="" class="label_text">생년월일</label>
+                    <input type="date" required>
+                </div>
+                <label for="" class="label_text">성별</label>
+                <div class="radio_wrapper">
+                    <input type="radio" id="male" name="gender" required>
+                    <label for="male">남성</label>
+                    <input type="radio" id="female" name="gender" required>
+                    <label for="female">여성</label>
+                </div>
+                <button type="submit" class="login_btn">회원가입</button>
+            </form>
+        </div>
+    </section>
+    <th:block th:replace="~{fragments/footer :: footer}">  </th:block>
+</body>
+</html>

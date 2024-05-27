@@ -34,24 +34,7 @@
   </head>
   <body>
     <!-- Header -->
-    <header class="header">
-      <div class="header__logo">
-        <img class="header__logo__img" src="images/logo.webp" alt="logo" />
-        <h1 class="header__logo__title"><a href="#">potato</a></h1>
-      </div>
-      <nav class="header__nav">
-        <ul class="header__menu">
-          <li><a class="header__menu__item active" href="/redirectToIndex">Home</a></li>
-          <li><a class="header__menu__item" href="/guide">가이드</a></li>
-          <li><a class="header__menu__item" href="#skills">참가안내</a></li>
-          <li><a class="header__menu__item" href="/info">알림 마당</a></li>
-          <li><a class="header__menu__item" href="#work">지난 박람회</a></li>
-        </ul>
-      </nav>
-      <button class="header__toggle" aria-label="navigation menu toggle">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </header>
+    <th:block th:replace="fragments/header :: header">  </th:block>
 
     <!-- Main -->
     
@@ -66,14 +49,6 @@
 
     
     <!-- Footer -->
-    <footer id="contact" class="section">
-      <div class="max-container">
-        <h2 class="title">About &#39; potato</h2>
-        <p class="description">Team building 2024.03.14</p>
-        
-        </ul>
-        <p>ⓒpotato - All rights reserved</p>
-      </div>
-    </footer>
+    <th:block th:replace="fragments/footer :: footer">  </th:block>
   </body>
 </html>

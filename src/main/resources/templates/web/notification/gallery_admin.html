@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="header/header.css">
+    <link rel="stylesheet" href="footer/footer.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/logo.webp" type="image/x-icon" />
+    <script src="src/header_footer.js"></script>
+    <title>갤러리 게시물 작성</title>
+  </head>
+
+<body>
+    <th:block th:replace="~{fragments/header :: header}">  </th:block>
+
+  <main>
+    <body>
+      <section id="home">
+        <h2 class="home__title"> 갤러리 </h2>
+        <hr class ="hr1" noshade>
+      </br>
+      <div>
+          <div class="input-group">
+            <dt>제목</dt>
+            <dd><textarea placeholder="제목 입력"></textarea></dd>
+          </div>
+          <div class="input-group">
+            <dt>내용</dt>
+            <dd><textarea class="content" placeholder="내용 입력"></textarea></dd>
+          </div>
+          <div class="input-group">
+              <dt>파일</dt>
+              <input type="file" multiple>
+          </div>
+          <input type="button" value="글쓰기" class="gradient" />
+        </div>
+      </section>
+    </main>
+  <th:block th:replace="~{fragments/footer :: footer}">  </th:block>
+</body>
+</html>

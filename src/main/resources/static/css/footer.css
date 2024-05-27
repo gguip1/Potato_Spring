@@ -1,0 +1,26 @@
+/* Footer */
+#contact {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+.section {
+    margin-top: 80px;
+    padding: 4rem;
+    text-align: center;
+}
+
+.max-container {
+    max-width: var(--size-max-width);
+    margin: auto;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+.description {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}

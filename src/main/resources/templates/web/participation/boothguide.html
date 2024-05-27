@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>participation Guide</title>
+
+    <link rel="shortcut icon" href="images/logo.webp" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/9eb162ac0d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/boothguide.css" />
+</head>
+
+<body>
+<th:block th:replace="~{fragments/header :: header}">  </th:block>
+<main>
+    <section id="participation" class="section2">
+        <div class="max-container">
+            <h2 class="title">참가 안내</h2>
+            <h3 class="title">참가 절차</h3>
+            <div class="procedure-steps">
+                <div class="step">
+                    <div class="step-number">STEP.1</div>
+                    <div class="step-details">
+                        <p>참가신청서 제출, 계약금(50%) 납부</p>
+                        <p>신청 후 7일 이내</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">STEP.2</div>
+                    <div class="step-details">
+                        <p>잔금(50%) 납부</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">STEP.3</div>
+                    <div class="step-details">
+                        <p>온라인 등록 부대시설 신청</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">STEP.4</div>
+                    <div class="step-details">
+                        <p>부대시설비 납부</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">STEP.5</div>
+                    <div class="step-details">
+                        <p>전시품 반입 및 부스장치</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">STEP.6</div>
+                    <div class="step-details">
+                        <p>전시회 개막</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="title">부스 타입 및 사항</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Booth Type</th>
+                    <th>Size</th>
+                    <th>Fee (USD)</th>
+                    <th>Booth View Map</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Standard Booth</td>
+                    <td>3m x 3m</td>
+                    <td>1,500</td>
+                    <td>Standard Booth View</td>
+                </tr>
+                <tr>
+                    <td>Premium Booth</td>
+                    <td>6m x 3m</td>
+                    <td>2,800</td>
+                    <td>Premium Booth View</td>
+                </tr>
+                <tr>
+                    <td>Custom Booth</td>
+                    <td>Variable</td>
+                    <td>Contact us for pricing</td>
+                    <td>Custom Booth View</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3 class="title">부대시설 안내</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>비용</th>
+                    <th>단위</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>인터넷</td>
+                    <td>200,000원</td>
+                    <td>회선</td>
+                </tr>
+                <tr>
+                    <td>급배수</td>
+                    <td>300,000원</td>
+                    <td>개소</td>
+                </tr>
+                <tr>
+                    <td>전기 </td>
+                    <td>70,000원(단상, 삼상220V), 150,000원(24시간용 전기)</td>
+                    <td>kW</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <aside>
+        <a class="arrow-up" href="../index.html" title="back to top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+    </aside>
+</main>
+<th:block th:replace="~{fragments/footer :: footer}">  </th:block>
+</body>
+
+</html>

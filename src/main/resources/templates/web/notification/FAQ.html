@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/notification.css">
+  <link rel="shortcut icon" href="images/logo.webp" type="image/x-icon">
+  <script src="src/header_footer.js"></script>
+  <title>자주 묻는 질문</title>
+</head>
+<body>
+    <th:block th:replace="~{fragments/header :: header}">  </th:block>
+  <main>
+    <body>
+      <section id="home">
+        <h2 class="home__title"> 자주 묻는 질문 </h2>
+        <hr class ="hr1" noshade>
+      </br>       
+      <form class="right">
+        <select>
+          <option value="제목">제목</option>
+          <option value="내용">내용</option>
+        </select>
+          <input type="text">
+          <input type="button" name="검색" class="gradient" value="검색">
+      </form>
+      <div style="margin-right: 10px;">
+        <table>
+            <tr>
+                <th>질문</th>
+            </tr>
+            <tr class="faq-item">
+                <td class="faq-question">전시회 참가신청은 어떻게 하나요?</td>
+            </tr>
+            <tr class="faq-answer">
+                <td>참가기업 페이지 로그인 후, 온라인 출품 신청 하시면 됩니다.
+                  계정이 없는 기업은 회원가입 후 진행 해주시고, 계정 문의는 사무국으로 연락 주시기 바랍니다. (T. 02-6121-6363)</td>
+            </tr>
+            <tr class="faq-item">
+                <td class="faq-question">참가 신청 후, 출품료 납부는 어떻게 진행되나요?</td>
+            </tr>
+            <tr class="faq-answer">
+                <td>온라인 참가 신청이 완료되면, 사무국에서 출품내역서를 담당자에게 송부드립니다.
+                  계약금(총 참가비의 50%)는 신청서 접수 후 2주 이내, 잔금 50%는 8월 18일(금)까지 납부해주시기 바랍니다.</td>
+            </tr>
+            <tr class="faq-item">
+                <td class="faq-question">질문</td>
+            </tr>
+            <tr class="faq-answer">
+                <td>대답</td>
+            </tr>
+            <tr class="faq-item">
+                <td class="faq-question">질문</td>
+            </tr>
+            <tr class="faq-answer">
+                <td>대답</td>
+            </tr>
+            <tr class="faq-item">
+                <td class="faq-question">질문</td>
+            </tr>
+            <tr class="faq-answer">
+                <td>대답</td>
+            </tr>
+            <tr class="faq-item">
+                <td class="faq-question">질문</td>
+            </tr>
+            <tr class="faq-answer">
+                <td>대답</td>
+            </tr>
+            <tr class="faq-item">
+                <td class="faq-question">질문</td>
+            </tr>
+            <tr class="faq-answer">
+                <td>대답</td>
+            </tr>
+            <tr class="faq-item">
+                <td class="faq-question">질문</td>
+            </tr>
+            <tr class="faq-answer">
+                <td>대답</td>
+            </tr>
+        </table>
+      </div>
+    <div>
+      </br>  
+      <div class="center number">
+        <a href  = "">◀ 이전</a> 
+        <a href  = ""><strong>1</strong></a>
+        <a href  = "">2</a>  
+        <a href  = "">3</a>  
+        <a href  = "">4</a>     
+        <a href  = "">다음 ▶</a>
+      </div>
+    </div>
+    </section>
+  </body>
+    </main>
+    <th:block th:replace="~{fragments/footer :: footer}">  </th:block>
+
+<!--    <script>-->
+<!--        const faqItems = document.querySelectorAll('.faq-item');-->
+
+<!--        faqItems.forEach(item => {-->
+<!--            const question = item.querySelector('.faq-question');-->
+<!--            question.addEventListener('click', () => {-->
+<!--                const answer = item.nextElementSibling;-->
+<!--                if (answer && answer.classList.contains('faq-answer')) {-->
+<!--                    answer.style.display = answer.style.display === 'table-row' ? 'none' : 'table-row';-->
+<!--                }-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+</body>
+</html>
