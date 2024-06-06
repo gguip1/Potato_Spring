@@ -1,318 +1,316 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- SEO -->
     <title>home</title>
-    
-    <link rel="shortcut icon" href="images/logo.webp" type="image/x-icon" />
+
+    <link rel="shortcut icon" href="images/logo.webp" type="image/x-icon"/>
     <!-- OG (Open Graph Data) -->
-    <meta property="og:title" content="전시회 사이트" />
-    <meta property="og:type" content="website" />
+    <meta property="og:title" content="전시회 사이트"/>
+    <meta property="og:type" content="website"/>
     <!-- <meta property="og:url" content="배포후 생성된 URL" />
     <meta property="og:image" content="배포후에 생성된 이미지 URL" /> -->
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+            rel="stylesheet"
     />
     <!-- Font Awesome -->
     <script
-      src="https://kit.fontawesome.com/9eb162ac0d.js"
-      crossorigin="anonymous"
+            src="https://kit.fontawesome.com/9eb162ac0d.js"
+            crossorigin="anonymous"
     ></script>
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/index.css"/>
     <!-- Javascript -->
     <script type="module" src="src/main.js" defer></script>
     <script type="module" src="src/projects.js" defer></script>
     <script type="module" src="src/active_menu.js" defer></script>
 </head>
 <body>
-    <!-- Header -->
-    <th:block th:replace="~{fragments/header :: header}">  </th:block>
+<!-- Header -->
+<th:block th:replace="~{fragments/header :: header}"></th:block>
 
-    <!-- Main -->
-    <main>
-      <!-- Home -->
-      <section id="home">
+<!-- Main -->
+<main>
+    <!-- Home -->
+    <section id="home">
         <div class="home__container">
-          <img class="home__avatar" />
-          <h2 class="home__title">
-            Video <br />
-            <strong class="home__title--strong"></strong>
-          </h2>
-          <p class="home__description">
-            11111111111
-          </p>
+<!--            <video src="images/main.mp4" autoplay muted loop class="full-width-video"></video>-->
+            <img src="images/main.jpg" class="full-width-video">
+            <h1 class="video_title" id="text1">Potato 박람회에서<br>새로운 기회를 만나보세요!</h1>
         </div>
-      </section>
-      <!-- About -->
-      <section id="about" class="section max-container">
+    </section>
+    <!-- About -->
+    <section id="about" class="section max-container">
         <h2 class="title">Kind of Exhibition</h2>
         <p class="description">
-          여러 박람회들을 모아둔 사이트 입니다.
+            여러 박람회들을 모아둔 사이트 입니다.
         </p>
         <ul class="majors">
-          <li class="major">
-            <i class="fas fa-laptop major__icon"></i>
-            <p class="major__title">IT</p>
-            <p>AI, Web, Mobile, Machine Learing... </p>
-          </li>
-          <li class="major">
-            <i class="fa-solid fa-users major__icon"></i>
-            <p class="major__title">Job</p>
-            <p>구인 구직, 다양한 직업 소개 etc. </p>
-          </li>
-          <li class="major">
-            <i class="fas fa-glass-cheers major__icon"></i>
-            <p class="major__title">Festival</p>
-            <p>국내 축제, 해외 축제 등 다양한 축제</p>
-          </li>
+            <li class="major">
+                <i class="fas fa-laptop major__icon"></i>
+                <p class="major__title">IT</p>
+                <p>AI, Web, Mobile, Machine Learing... </p>
+            </li>
+            <li class="major">
+                <i class="fa-solid fa-users major__icon"></i>
+                <p class="major__title">Job</p>
+                <p>구인 구직, 다양한 직업 소개 etc. </p>
+            </li>
+            <li class="major">
+                <i class="fas fa-glass-cheers major__icon"></i>
+                <p class="major__title">Festival</p>
+                <p>국내 축제, 해외 축제 등 다양한 축제</p>
+            </li>
         </ul>
-      </section>
+    </section>
 
-      <!-- show -->
-      <section id="show" class="section">
+    <!-- show -->
+    <section id="show" class="section">
         <div class="max-container">
-          <h2 class="title">Exhibition</h2>
-          <ul class="categories">
-            <li>
-              <button class="category category--selected" data-category="all">
-                All <span class="category__count">8</span>
-              </button>
-            </li>
-            <li>
-              <button class="category" data-category="IT">
-                IT <span class="category__count">4</span>
-              </button>
-            </li>
-            <li>
-              <button class="category" data-category="Job">
-                Job <span class="category__count">2</span>
-              </button>
-            </li>
-            <li>
-              <button class="category" data-category="Festival">
-                Festival <span class="category__count">2</span>
-              </button>
-            </li>
-          </ul>
-          <ul class="projects">
-            <li class="project" data-type="IT">
-              <a href="https://ictweek.kr/ko/html/00_main/" target="_blank">
-                <img
-                  src="images/show/IT(1).jpg"
-                  href = "https://ictweek.kr/ko/html/00_main/"
-                  alt="project1"
-                  class="project__img"
-                />
-                <div class="project__metadata">
-                  <h3 class="project__title">AI KOREA 2024</h3>
-                  <p>AI</p>
-                </div>
-              </a>
-            </li>
-            <li class="project" data-type="IT">
-              <a href="https://smarttechkorea.com/" target="_blank">
-                <img
-                  src="images/show/IT(2).jpg"
-                  alt="project2"
-                  class="project__img"
-                />
-                <div class="project__metadata">
-                  <h3 class="project__title">스마트테크코리아</h3>
-                  <p>IT</p>
-                </div>
-              </a>
-            </li>
-            <li class="project" data-type="Job">
-              <a href="https://xn--vk1b9h58nog333djb2io2bd63b.com/" target="_blank">
-                <img
-                  src="images/show/Job(1).jpg"
-                  alt="project3"
-                  class="project__img"
-                />
-                <div class="project__metadata">
-                  <h3 class="project__title">2024 일자리 NEW 365 매칭데이</h3>
-                  <p>2024.05.21. (화) ~ 2024.05.21. (화)</p>
-                </div>
-              </a>
-            </li>
-            <li class="project" data-type="Festival">
-              <a href="https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do;jsessionid=39B8CCB7A5B1D9FD2F1B0519C25004CE.instance2?cmsCntntsId=2989543&Flag=Y" target="_blank">
-                <img
-                  src="images/show/Festival(1).jpg"
-                  alt="project4"
-                  class="project__img"
-                />
-                <div class="project__metadata">
-                  <h3 class="project__title">대전 비어 위크</h3>
-                  <p>2024.05.14 ~ 2024.06.02</p>
-                </div>
-              </a>
-            </li>
-            <li class="project" data-type="IT">
-              <a href="https://www.showala.com/ex/ex_detail.php?idx=1564" target="_blank">
-                <img
-                  src="images/show/IT(3).jpg"
-                  alt="project5"
-                  class="project__img"
-                />
-                <div class="project__metadata">
-                  <h3 class="project__title">2024 부산 로봇 엑스포</h3>
-                  <p>Robot</p>
-                </div>
-              </a>
-            </li>
-            <li class="project" data-type="Job">
-              <a href="https://greenclusterjob.kr/" target="_blank">
-                <img
-                  src="images/show/Job(2).jpg"
-                  alt="project6"
-                  class="project__img"
-                />
-                <div class="project__metadata">
-                  <h3 class="project__title">창업 벤처 녹색융합클러스터 2024 JOB FESTIVAL</h3>
-                  <p>2024.05.29. (수) ~ 2024.05.29. (수)</p>
-                </div>
-              </a>
-            </li>
-            <li class="project" data-type="Festival">
-              <a href="https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?cmsCntntsId=506473" target="_blank">
-                <img
-                  src="images/show/Festival(2).jpg"
-                  alt="project7"
-                  class="project__img"
-                />
-                <div class="project__metadata">
-                  <h3 class="project__title">제 94회 춘향제</h3>
-                  <p>2024.05.10 ~ 2024.05.16</p>
-                </div>
-              </a>
-            </li>
-            <li class="project" data-type="IT">
-              <a href="https://www.lifescienceweek.com/kor/index.asp" target="_blank">
-                <img
-                  src="images/show/IT(4).jpg"
-                  alt="project8"
-                  class="project__img"
-                />
-                <div class="project__metadata">
-                  <h3 class="project__title">Korea Life Science Week 2024</h3>
-                  <p>Life Science</p>
-                </div>
-              </a>
-            </li>
-          </ul>
+            <h2 class="title">Exhibition</h2>
+            <ul class="categories">
+                <li>
+                    <button class="category category--selected" data-category="all">
+                        All <span class="category__count">8</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="category" data-category="IT">
+                        IT <span class="category__count">4</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="category" data-category="Job">
+                        Job <span class="category__count">2</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="category" data-category="Festival">
+                        Festival <span class="category__count">2</span>
+                    </button>
+                </li>
+            </ul>
+            <ul class="projects">
+                <li class="project" data-type="IT">
+                    <a href="https://ictweek.kr/ko/html/00_main/" target="_blank">
+                        <img
+                                src="images/show/IT(1).jpg"
+                                href="https://ictweek.kr/ko/html/00_main/"
+                                alt="project1"
+                                class="project__img"
+                        />
+                        <div class="project__metadata">
+                            <h3 class="project__title">AI KOREA 2024</h3>
+                            <p>AI</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="project" data-type="IT">
+                    <a href="https://smarttechkorea.com/" target="_blank">
+                        <img
+                                src="images/show/IT(2).jpg"
+                                alt="project2"
+                                class="project__img"
+                        />
+                        <div class="project__metadata">
+                            <h3 class="project__title">스마트테크코리아</h3>
+                            <p>IT</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="project" data-type="Job">
+                    <a href="https://xn--vk1b9h58nog333djb2io2bd63b.com/" target="_blank">
+                        <img
+                                src="images/show/Job(1).jpg"
+                                alt="project3"
+                                class="project__img"
+                        />
+                        <div class="project__metadata">
+                            <h3 class="project__title">2024 일자리 NEW 365 매칭데이</h3>
+                            <p>2024.05.21. (화) ~ 2024.05.21. (화)</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="project" data-type="Festival">
+                    <a href="https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do;jsessionid=39B8CCB7A5B1D9FD2F1B0519C25004CE.instance2?cmsCntntsId=2989543&Flag=Y"
+                       target="_blank">
+                        <img
+                                src="images/show/Festival(1).jpg"
+                                alt="project4"
+                                class="project__img"
+                        />
+                        <div class="project__metadata">
+                            <h3 class="project__title">대전 비어 위크</h3>
+                            <p>2024.05.14 ~ 2024.06.02</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="project" data-type="IT">
+                    <a href="https://www.showala.com/ex/ex_detail.php?idx=1564" target="_blank">
+                        <img
+                                src="images/show/IT(3).jpg"
+                                alt="project5"
+                                class="project__img"
+                        />
+                        <div class="project__metadata">
+                            <h3 class="project__title">2024 부산 로봇 엑스포</h3>
+                            <p>Robot</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="project" data-type="Job">
+                    <a href="https://greenclusterjob.kr/" target="_blank">
+                        <img
+                                src="images/show/Job(2).jpg"
+                                alt="project6"
+                                class="project__img"
+                        />
+                        <div class="project__metadata">
+                            <h3 class="project__title">창업 벤처 녹색융합클러스터 2024 JOB FESTIVAL</h3>
+                            <p>2024.05.29. (수) ~ 2024.05.29. (수)</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="project" data-type="Festival">
+                    <a href="https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?cmsCntntsId=506473"
+                       target="_blank">
+                        <img
+                                src="images/show/Festival(2).jpg"
+                                alt="project7"
+                                class="project__img"
+                        />
+                        <div class="project__metadata">
+                            <h3 class="project__title">제 94회 춘향제</h3>
+                            <p>2024.05.10 ~ 2024.05.16</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="project" data-type="IT">
+                    <a href="https://www.lifescienceweek.com/kor/index.asp" target="_blank">
+                        <img
+                                src="images/show/IT(4).jpg"
+                                alt="project8"
+                                class="project__img"
+                        />
+                        <div class="project__metadata">
+                            <h3 class="project__title">Korea Life Science Week 2024</h3>
+                            <p>Life Science</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
         </div>
-      </section>
+    </section>
 
-      <!-- Surpporters -->
-      <section id="about" class="section max-container">
+    <!-- Surpporters -->
+    <section id="about" class="section max-container">
 
         <div class="title">
-          <h2>Partners</h2>
+            <h2>Partners</h2>
         </div>
-  
-        <div class="row">
-          <div class="surpporters">
-            <img src="images/surpporters/google.jpg">
-            <h3>GOOGLE</h3>
-            <p>
-              현재 전 세계에서 가장 큰 인터넷 기업 중 하나이자 인터넷 관련 서비스와 제품을 전문으로 하는 미국의 다국적 기술 기업이다. 
-              세계에서 가장 많이 방문하는 웹사이트 '구글닷컴(Google.com)'을 운영한다.
-            </p>
-          </div>
-  
-  
-          <div class="surpporters">
-            <img src="images/surpporters/naver.jpg">
-            <h3>Naver</h3>
-            <p>
-              1999년 6월에 설립된 대한민국 대표 인터넷 회사. 
-              인터넷 포털 '네이버(NAVER)'와 글로벌 모바일 메신저 '라인(LINE)' 등을 운영하는 글로벌 기업
-            </p>
-          </div>
-          <div class="surpporters">
-            <img src="images/surpporters/amazon.jpg">
-            <h3>Amazon</h3>
-            <p>
-              제프 베조스가 1994년 시애틀에 설립한 미국의 전자상거래를 기반으로 한 IT 기업. 
-              도서를 비롯하여 다양한 상품은 물론 전자책, 태블릿 PC를 제조 판매하며, 기업형 클라우드 서비스도 제공하고 있다.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      <!-- Testimonials -->
-      <section id="testimonial" class="section max-container">
+        <div class="row">
+            <div class="surpporters">
+                <img src="images/supporters/google.jpg">
+                <h3>GOOGLE</h3>
+                <p>
+                    현재 전 세계에서 가장 큰 인터넷 기업 중 하나이자 인터넷 관련 서비스와 제품을 전문으로 하는 미국의 다국적 기술 기업이다.
+                    세계에서 가장 많이 방문하는 웹사이트 '구글닷컴(Google.com)'을 운영한다.
+                </p>
+            </div>
+
+
+            <div class="surpporters">
+                <img src="images/supporters/naver.jpg">
+                <h3>Naver</h3>
+                <p>
+                    1999년 6월에 설립된 대한민국 대표 인터넷 회사.
+                    인터넷 포털 '네이버(NAVER)'와 글로벌 모바일 메신저 '라인(LINE)' 등을 운영하는 글로벌 기업
+                </p>
+            </div>
+            <div class="surpporters">
+                <img src="images/supporters/amazon.jpg">
+                <h3>Amazon</h3>
+                <p>
+                    제프 베조스가 1994년 시애틀에 설립한 미국의 전자상거래를 기반으로 한 IT 기업.
+                    도서를 비롯하여 다양한 상품은 물론 전자책, 태블릿 PC를 제조 판매하며, 기업형 클라우드 서비스도 제공하고 있다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonial" class="section max-container">
         <h2 class="title">Testimonial</h2>
         <p class="description">See what they say about me</p>
         <ul class="testimonials">
-          <li class="testimonial">
-            <img
-              src="images/testimonials/people(1).jpg"
-              alt="people1"
-              class="testimonial__img"
-            />
-            <div class="testimonial__bubble">
-              <p>
-                정말 최고였어요.
-                이렇게 원하는 내용을 한번에 볼 수 있는 사이트는 처음이었어요.
-              </p>
-              <p>
-                <a class="testimonial__bubble__name">Jack</a>
-                
-              </p>
-            </div>
-          </li>
-          <li class="testimonial">
-            <img
-              src="images/testimonials/people(2).jpg"
-              alt="people2"
-              class="testimonial__img"
-            />
-            <div class="testimonial__bubble">
-              <p>
-                일자리를 구하고 있었는데 이 사이트의 채용 박람회 정보 덕분에 취업을 할 수 있었어요.
-              </p>
-              <p>
-                <a class="testimonial__bubble__name">steve</a>
-              </p>
-            </div>
-          </li>
-          <li class="testimonial">
-            <img
-              src="images/testimonials/people(3).jpg"
-              alt="people3"
-              class="testimonial__img"
-            />
-            <div class="testimonial__bubble">
-              <p>
-                이렇게 도움되는 사이트 없이 전에는 어떻게 살았는지 몰라요.
-                이 사이트 덕분에 삶의 질이 올라 갔어요 !
-                정말 추천해요.
-              </p>
-              <p>
-                <a href="#" class="testimonial__bubble__name">Anna</a>
-              </p>
-            </div>
-          </li>
+            <li class="testimonial">
+                <img
+                        src="images/testimonials/people(1).jpg"
+                        alt="people1"
+                        class="testimonial__img"
+                />
+                <div class="testimonial__bubble">
+                    <p>
+                        정말 최고였어요.
+                        이렇게 원하는 내용을 한번에 볼 수 있는 사이트는 처음이었어요.
+                    </p>
+                    <p>
+                        <a class="testimonial__bubble__name">Jack</a>
+
+                    </p>
+                </div>
+            </li>
+            <li class="testimonial">
+                <img
+                        src="images/testimonials/people(2).jpg"
+                        alt="people2"
+                        class="testimonial__img"
+                />
+                <div class="testimonial__bubble">
+                    <p>
+                        일자리를 구하고 있었는데 이 사이트의 채용 박람회 정보 덕분에 취업을 할 수 있었어요.
+                    </p>
+                    <p>
+                        <a class="testimonial__bubble__name">steve</a>
+                    </p>
+                </div>
+            </li>
+            <li class="testimonial">
+                <img
+                        src="images/testimonials/people(3).jpg"
+                        alt="people3"
+                        class="testimonial__img"
+                />
+                <div class="testimonial__bubble">
+                    <p>
+                        이렇게 도움되는 사이트 없이 전에는 어떻게 살았는지 몰라요.
+                        이 사이트 덕분에 삶의 질이 올라 갔어요 !
+                        정말 추천해요.
+                    </p>
+                    <p>
+                        <a href="#" class="testimonial__bubble__name">Anna</a>
+                    </p>
+                </div>
+            </li>
         </ul>
-      </section>
-      <!-- Arrow up -->
-      <aside>
+    </section>
+    <!-- Arrow up -->
+    <aside>
         <a class="arrow-up" href="#" title="back to top">
-          <i class="fa-solid fa-arrow-up"></i>
+            <i class="fa-solid fa-arrow-up"></i>
         </a>
-      </aside>
-    </main>
-    <!-- Footer -->
-    <th:block th:replace="~{fragments/footer :: footer}">  </th:block>
+    </aside>
+</main>
+<!-- Footer -->
+<th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
 </body>
 </html>

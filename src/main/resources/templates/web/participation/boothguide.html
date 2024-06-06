@@ -2,26 +2,25 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>participation Guide</title>
 
-    <link rel="shortcut icon" href="images/logo.webp" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="images/logo.webp" type="image/x-icon"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/9eb162ac0d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/boothguide.css" />
+    <link rel="stylesheet" href="css/participation/boothguide.css"/>
 </head>
 
 <body>
-<th:block th:replace="~{fragments/header :: header}">  </th:block>
+<th:block th:replace="~{fragments/header :: header}"></th:block>
 <main>
     <section id="participation" class="section2">
         <div class="max-container">
-            <h2 class="title">참가 안내</h2>
-            <h3 class="title">참가 절차</h3>
+            <h3 class="booth-title">참가 절차</h3>
             <div class="procedure-steps">
                 <div class="step">
                     <div class="step-number">STEP.1</div>
@@ -62,8 +61,8 @@
                 </div>
             </div>
 
-            <h3 class="title">부스 타입 및 사항</h3>
-            <table>
+            <h3 class="type-title">부스 타입 및 사항</h3>
+            <table class="booth-table">
                 <thead>
                 <tr>
                     <th>Booth Type</th>
@@ -94,8 +93,8 @@
                 </tbody>
             </table>
 
-            <h3 class="title">부대시설 안내</h3>
-            <table>
+            <h3 class="info-title">부대시설 안내</h3>
+            <table class="info-table">
                 <thead>
                 <tr>
                     <th>구분</th>
@@ -115,7 +114,7 @@
                     <td>개소</td>
                 </tr>
                 <tr>
-                    <td>전기 </td>
+                    <td>전기</td>
                     <td>70,000원(단상, 삼상220V), 150,000원(24시간용 전기)</td>
                     <td>kW</td>
                 </tr>
@@ -125,12 +124,11 @@
     </section>
 
     <aside>
-        <a class="arrow-up" href="../index.html" title="back to top">
+        <a class="arrow-up" href="#" title="back to top">
             <i class="fa-solid fa-arrow-up"></i>
         </a>
     </aside>
 </main>
-<th:block th:replace="~{fragments/footer :: footer}">  </th:block>
+<th:block th:replace="~{fragments/footer :: footer}"></th:block>
 </body>
-
 </html>

@@ -58,4 +58,9 @@ section {
 .wrapper h1 {
     font-size: 36px;
     text-align: left;
+    margin-bottom: 15px;
+}
+
+.wrapper h2 {
+    margin-bottom: 10px;
 }

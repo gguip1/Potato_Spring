@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>박람회 행사장 안내</title>
+
+    <link rel="shortcut icon" href="images/logo.webp" type="image/x-icon"/>
+    <meta property="og:title" content="박람회 행사장 안내"/>
+    <meta property="og:type" content="website"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/color.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/guide/guide.css"/>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+<main class="main_info">
+    <section class="booth-map">
+        <h2>부스 안내</h2>
+        <img src="images/guide/booth.jpg" alt="부스 안내 지도">
+    </section>
+    <div class="info_list">
+        <section class="company-list">
+            <h2> [참여 기업]</h2>
+            <ul>
+                <li> - 네이버</li>
+                <li> - 아마존</li>
+                <li> - 삼성</li>
+                <!-- 기업 목록을 필요에 따라 확장 -->
+            </ul>
+        </section>
+        <section class="event-list">
+            <h2>[진행 중인 이벤트]</h2>
+            <ul>
+                <li> - 채용 박람회</li>
+                <li> - 직업 적성 검사</li>
+                <li> - 모의 면접</li>
+                <!-- 이벤트 목록을 필요에 따라 확장 -->
+            </ul>
+        </section>
+    </div>
+</main>
+<th:block th:replace="~{fragments/footer :: footer}"></th:block>
+</body>
+</html>

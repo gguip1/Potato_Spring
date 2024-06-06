@@ -1,0 +1,149 @@
+
+nav a.logoExhibit {
+  color: #000;
+  font-size: 35px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  line-height: 60px;
+  cursor: pointer;
+  font-family: cursive;
+}
+
+nav .ulExhibit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: .5s;
+}
+
+nav .ulExhibit .liExhibit {
+  line-height: 60px;
+  margin: 0 5px;
+}
+
+nav .ulExhibit .aExhibit {
+  color: #fff;
+  font-size: 18px;
+  
+  padding: 5px 13px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: .4s;
+}
+
+nav .ulExhibit .aExhibit:hover {
+  background: #03e8f9;
+  padding: 10px;
+  color: #000;
+}
+
+.mainExhibit {
+  background: #fff;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+.sectionExhibit {
+  min-height: 100vh;
+  color: #000;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 80px;
+  font-size: 40px;
+}
+
+.scroll-containerExhibit {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+  width: calc(100% - 40px); /* 전체 폭에서 패딩만큼 뺀다 */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* 양쪽 간격 추가 */
+}
+
+.scroll-containerExhibit blockquote {
+  width: 100%;
+  margin: 0;
+}
+
+.mainExhibit {
+  padding-top: 80px;
+}
+
+
+
+.checkbtnExhibit {
+  display: none; /* 삼단바 아이콘 숨기기 */
+}
+
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+
+/*video*/
+.video-section {
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-width-video {
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  display: block;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000; 
+}
+
+.video-heading-container {
+  text-align: center;
+  margin-top: 5px;
+  padding: 10px 0;
+  color: var(--color-white); 
+}
+
+.video-heading {
+  font-size: 2rem;
+  color: var(--color-white);
+  margin: 0;
+}
+
+/*navigation*/
+.ulExhibit {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.liExhibit {
+  list-style: none;
+}
+
+.aExhibit {
+  color: var(--color-white);
+  font-size: 18px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: 0.4s;
+}
+
+.aExhibit:hover {
+  background: var(--color-accent);
+  color: var(--color-black);
+}

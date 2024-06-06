@@ -6,16 +6,16 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class 	PotatoSpringApplication extends SpringBootServletInitializer {
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder){
-		return builder.sources(PotatoSpringApplication.class);
-	}
+public class PotatoSpringApplication extends SpringBootServletInitializer {
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(PotatoSpringApplication.class);
+    }
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		SpringApplication.run(PotatoSpringApplication.class, args);
+        SpringApplication.run(PotatoSpringApplication.class, args);
 
-	}
+    }
 
 }

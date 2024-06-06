@@ -2,8 +2,12 @@ package Potato.Potato_Spring;
 
 import Potato.Potato_Spring.repository.APIRepository;
 import Potato.Potato_Spring.repository.JdbcAPIRepository;
+import Potato.Potato_Spring.repository.JdbcMemberRepository;
+import Potato.Potato_Spring.repository.MemberRepository;
 import Potato.Potato_Spring.service.APIService;
+import Potato.Potato_Spring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
@@ -23,5 +27,12 @@ public class SpringConfig {
 
     public APIRepository contentRepository(){
         return new JdbcAPIRepository(dataSource);
+    }
+
+    public MemberService memberService(){
+        return new MemberService(memberRepository());
+    }
+    public MemberRepository memberRepository() {
+        return new JdbcMemberRepository(dataSource);
     }
 }
