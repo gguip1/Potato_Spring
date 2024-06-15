@@ -7,6 +7,15 @@ public class Content {
     private String description;
     private String director;
     private String actor;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public int getId() {
         return id;

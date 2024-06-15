@@ -17,37 +17,44 @@ public class APIController {
     private final APIService APIService;
 
     private static final List<String> CONTENT_TABLE_NAMES = Arrays.asList(
-            "movie_test", "couplay", "kakaowebtoon", "kpnovel", "naverwebtoon", "netflix", "watcha"
+            "movie_test", "couplay", "kakaowebtoon", "kpnovel", "naverwebtoon", "netflix", "watcha", "kpwebtoon"
     );
 
     private static final List<String> GENRE_TABLE_NAMES = Arrays.asList(
-                "movie_test_genre", "couplay_genre", "kakaowebtoon_genre", "kpnovel_genre", "naverwebtoon_genre", "netflix_genre", "watcha_genre"
+                "movie_test_genre", "couplay_genre", "kakaowebtoon_genre", "kpnovel_genre", "naverwebtoon_genre", "netflix_genre", "watcha_genre", "kpwebtoon_genre"
     );
 
     public APIController(APIService APIService) {
         this.APIService = APIService;
     }
 
-    @RequestMapping(value = "/application/api/getContentById", method = RequestMethod.GET)
+    @RequestMapping(value = "/application/api/searchContent", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public List<Content> getContentById(@RequestParam String tableName, @RequestParam int id){
-        if(CONTENT_TABLE_NAMES.contains(tableName)){
+    public List<Content> searchContent(@RequestParam String word, @RequestParam("page") int page, @RequestParam("pagingUnit") int pagingUnit){
+            String query =
+                    "SELECT * FROM (SELECT * FROM couplay UNION ALL SELECT * FROM kakaowebtoon UNION ALL SELECT * FROM kpnovel UNION ALL SELECT * FROM naverwebtoon UNION ALL SELECT * FROM netflix UNION ALL SELECT * FROM watcha) AS combined_tables WHERE REPLACE(title, ' ', '') LIKE REPLACE('%" + word + "%', ' ', '') LIMIT " + pagingUnit + " OFFSET " + page * pagingUnit + ";";
 
-            String query = "SELECT * FROM " + tableName + " WHERE id = " + id;
+            return APIService.getContent(query);
+    }
+
+    @RequestMapping(value = "/application/api/getContentRandom", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<Content> getContentRandom(@RequestParam String tableName, @RequestParam int unit){
+        if(CONTENT_TABLE_NAMES.contains(tableName)){
+            String query = "SELECT * FROM " + tableName + " ORDER BY RAND() LIMIT " + unit;
 
             return APIService.getContent(query);
         }
         return null;
     }
 
-    @RequestMapping(value = "/application/api/getContentByIdCount", method = RequestMethod.GET)
+    @RequestMapping(value = "/application/api/getContentById", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public List<Count> getContentByIdCount(@RequestParam String tableName, @RequestParam int id){
+    public List<Content> getContentById(@RequestParam String tableName, @RequestParam int id){
         if(CONTENT_TABLE_NAMES.contains(tableName)){
+            String query = "SELECT * FROM " + tableName + " WHERE id = " + id;
 
-            String query = "SELECT COUNT(*) AS cnt FROM " + tableName + " WHERE id = " + id;
-
-            return APIService.getCount(query);
+            return APIService.getContent(query);
         }
         return null;
     }
@@ -64,24 +71,12 @@ public class APIController {
         return null;
     }
 
-    @RequestMapping(value = "/application/api/getPaginatedContentsCount", method = RequestMethod.GET)
-    @ResponseStatus(value = HttpStatus.OK)
-    public List<Count> getPaginatedContentsCount(@RequestParam("tableName") String tableName, @RequestParam("page") int page, @RequestParam("pagingUnit") int pagingUnit){
-        if(CONTENT_TABLE_NAMES.contains(tableName)){
-
-            String query = "SELECT COUNT(*) AS cnt FROM " + tableName + " ORDER BY id ASC LIMIT " + pagingUnit + " OFFSET " + page * pagingUnit;
-
-            return APIService.getCount(query);
-        }
-        return null;
-    }
-
     @RequestMapping(value = "/application/api/getContent", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Content> getContent(@RequestParam String tableName){
         if(CONTENT_TABLE_NAMES.contains(tableName)){
 
-            String query = "SELECT * as cnt FROM " + tableName;
+            String query = "SELECT * FROM " + tableName;
 
             return APIService.getContent(query);
         }
@@ -93,7 +88,7 @@ public class APIController {
     public List<Count> getContentCount(@RequestParam String tableName){
         if(CONTENT_TABLE_NAMES.contains(tableName)){
 
-            String query = "SELECT count(*) AS cnt as cnt FROM " + tableName;
+            String query = "SELECT count(*) as cnt FROM " + tableName;
 
             return APIService.getCount(query);
         }
@@ -188,11 +183,23 @@ public class APIController {
     @ResponseStatus(value = HttpStatus.OK)
     public List<Count> getContentsByGenreIdCount(@RequestParam String tableName, @RequestParam int genre_id){
         if(CONTENT_TABLE_NAMES.contains(tableName)){
-            String query = "SELECT * FROM " + tableName + " WHERE id in (SELECT id FROM " + tableName + "_genre WHERE genre_id = " + genre_id + ")";
+            String query = "SELECT COUNT(*) as cnt FROM " + tableName + " WHERE id in (SELECT id FROM " + tableName + "_genre WHERE genre_id = " + genre_id + ")";
 
             return APIService.getCount(query);
         }
         return null;
     }
+
+    //    @RequestMapping(value = "/application/api/getPaginatedContentsCount", method = RequestMethod.GET)
+//    @ResponseStatus(value = HttpStatus.OK)
+//    public List<Count> getPaginatedContentsCount(@RequestParam("tableName") String tableName, @RequestParam("page") int page, @RequestParam("pagingUnit") int pagingUnit){
+//        if(CONTENT_TABLE_NAMES.contains(tableName)){
+//
+//            String query = "SELECT COUNT(*) AS cnt FROM " + tableName + " ORDER BY id ASC LIMIT " + pagingUnit + " OFFSET " + page * pagingUnit;
+//
+//            return APIService.getCount(query);
+//        }
+//        return null;
+//    }
 
 }

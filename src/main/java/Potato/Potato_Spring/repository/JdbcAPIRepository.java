@@ -54,6 +54,7 @@ public class JdbcAPIRepository implements APIRepository {
             content.setDescription(rs.getString("description"));
             content.setDirector(rs.getString("director"));
             content.setActor(rs.getString("actor"));
+            content.setUrl(rs.getString("url"));
             return content;
         };
     }
