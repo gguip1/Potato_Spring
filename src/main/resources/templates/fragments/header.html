@@ -59,7 +59,11 @@
               <li><a href="#">2022</a></li>
               <li><a href="#">2021</a></li>
             </ul>
-          <li><a class="header__menu__item" href="/login">로그인</a></li>
+          <li>
+            <a th:if="${isLoggedIn}" class="header__menu__item" th:href="@{/logout}">로그아웃</a>
+            <a th:if="${!isLoggedIn}" class="header__menu__item" th:href="@{/login}">로그인</a>
+        </li>
+
           </li>
         </ul>
       </div>

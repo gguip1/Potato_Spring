@@ -38,6 +38,7 @@
 
 <!-- Main -->
 <main>
+    <p th:text="${session.loginID}"></p>
     <!-- Home -->
     <section id="home">
         <div class="home__container">
@@ -75,135 +76,17 @@
     <section id="show" class="section">
         <div class="max-container">
             <h2 class="title">Exhibition</h2>
-            <ul class="categories">
-                <li>
-                    <button class="category category--selected" data-category="all">
-                        All <span class="category__count">8</span>
-                    </button>
-                </li>
-                <li>
-                    <button class="category" data-category="IT">
-                        IT <span class="category__count">4</span>
-                    </button>
-                </li>
-                <li>
-                    <button class="category" data-category="Job">
-                        Job <span class="category__count">2</span>
-                    </button>
-                </li>
-                <li>
-                    <button class="category" data-category="Festival">
-                        Festival <span class="category__count">2</span>
-                    </button>
-                </li>
-            </ul>
             <ul class="projects">
-                <li class="project" data-type="IT">
-                    <a href="https://ictweek.kr/ko/html/00_main/" target="_blank">
-                        <img
-                                src="images/show/IT(1).jpg"
-                                href="https://ictweek.kr/ko/html/00_main/"
-                                alt="project1"
-                                class="project__img"
-                        />
-                        <div class="project__metadata">
-                            <h3 class="project__title">AI KOREA 2024</h3>
-                            <p>AI</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="project" data-type="IT">
-                    <a href="https://smarttechkorea.com/" target="_blank">
-                        <img
-                                src="images/show/IT(2).jpg"
-                                alt="project2"
-                                class="project__img"
-                        />
-                        <div class="project__metadata">
-                            <h3 class="project__title">스마트테크코리아</h3>
-                            <p>IT</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="project" data-type="Job">
-                    <a href="https://xn--vk1b9h58nog333djb2io2bd63b.com/" target="_blank">
-                        <img
-                                src="images/show/Job(1).jpg"
-                                alt="project3"
-                                class="project__img"
-                        />
-                        <div class="project__metadata">
-                            <h3 class="project__title">2024 일자리 NEW 365 매칭데이</h3>
-                            <p>2024.05.21. (화) ~ 2024.05.21. (화)</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="project" data-type="Festival">
-                    <a href="https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do;jsessionid=39B8CCB7A5B1D9FD2F1B0519C25004CE.instance2?cmsCntntsId=2989543&Flag=Y"
-                       target="_blank">
-                        <img
-                                src="images/show/Festival(1).jpg"
-                                alt="project4"
-                                class="project__img"
-                        />
-                        <div class="project__metadata">
-                            <h3 class="project__title">대전 비어 위크</h3>
-                            <p>2024.05.14 ~ 2024.06.02</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="project" data-type="IT">
-                    <a href="https://www.showala.com/ex/ex_detail.php?idx=1564" target="_blank">
-                        <img
-                                src="images/show/IT(3).jpg"
-                                alt="project5"
-                                class="project__img"
-                        />
-                        <div class="project__metadata">
-                            <h3 class="project__title">2024 부산 로봇 엑스포</h3>
-                            <p>Robot</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="project" data-type="Job">
-                    <a href="https://greenclusterjob.kr/" target="_blank">
-                        <img
-                                src="images/show/Job(2).jpg"
-                                alt="project6"
-                                class="project__img"
-                        />
-                        <div class="project__metadata">
-                            <h3 class="project__title">창업 벤처 녹색융합클러스터 2024 JOB FESTIVAL</h3>
-                            <p>2024.05.29. (수) ~ 2024.05.29. (수)</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="project" data-type="Festival">
-                    <a href="https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?cmsCntntsId=506473"
-                       target="_blank">
-                        <img
-                                src="images/show/Festival(2).jpg"
-                                alt="project7"
-                                class="project__img"
-                        />
-                        <div class="project__metadata">
-                            <h3 class="project__title">제 94회 춘향제</h3>
-                            <p>2024.05.10 ~ 2024.05.16</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="project" data-type="IT">
-                    <a href="https://www.lifescienceweek.com/kor/index.asp" target="_blank">
-                        <img
-                                src="images/show/IT(4).jpg"
-                                alt="project8"
-                                class="project__img"
-                        />
-                        <div class="project__metadata">
-                            <h3 class="project__title">Korea Life Science Week 2024</h3>
-                            <p>Life Science</p>
-                        </div>
-                    </a>
+                <li th:each="item, itemStat : ${items}" class="project" th:attr="data-type=${item.type_}">
+                    <th:block th:if="${itemStat.index < 8}">
+                        <a th:href="${item.url}" target="_blank">
+                            <img th:src="${item.img}" alt="${item.id}" class="project__img"/>
+                            <div class="project__metadata">
+                                <h3 class="project__title" th:text="${item.title}"></h3>
+                                <p><span th:text="${item.start_date}"></span> ~ <span th:text="${item.end_date}"></span></p>
+                            </div>
+                        </a>
+                    </th:block>
                 </li>
             </ul>
         </div>
@@ -311,6 +194,5 @@
 </main>
 <!-- Footer -->
 <th:block th:replace="~{fragments/footer :: footer}"></th:block>
-
 </body>
 </html>
