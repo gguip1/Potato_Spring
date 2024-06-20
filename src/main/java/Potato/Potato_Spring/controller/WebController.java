@@ -1,19 +1,91 @@
 package Potato.Potato_Spring.controller;
 
+import Potato.Potato_Spring.domain.Exhibition;
+import Potato.Potato_Spring.dto.ExhibitionDTO;
+import Potato.Potato_Spring.dto.MemberDTO;
+import Potato.Potato_Spring.service.ExhibitionJPAService;
+import Potato.Potato_Spring.service.ExhibitionService;
+import Potato.Potato_Spring.service.MemberService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class WebController {
+    private final LocalDate now = LocalDate.now();
+
+    private final ExhibitionService exhibitionService;
+    private final MemberService memberService;
+
+    // 세션 관리 메서드 추가
+    private HttpSession getSession(HttpServletRequest request) {
+        return request.getSession();
+    }
+
+    @ModelAttribute
+    public void header(Model model, HttpServletRequest request){
+        HttpSession session = getSession(request);
+        Object user = session.getAttribute("id");
+
+        model.addAttribute("isLoggedIn", user != null);
+    }
 
     @GetMapping("/")
-    public String index(){
+    public String index(Model model){
+        String query = "SELECT * FROM exhibition WHERE end_date >= CURRENT_DATE() ORDER BY start_date ASC LIMIT 8";
+        List<Exhibition> items = exhibitionService.getExhibition(query);
+
+        model.addAttribute("items", items);
         return "web/index.html";
     }
 
-    // 로그인
     @GetMapping("/login")
     public String login(){
+        return "web/login/login.html";
+    }
+
+    @PostMapping("/login")
+    public String login_(@ModelAttribute MemberDTO memberDTO, HttpServletRequest request){
+        MemberDTO loginResult = memberService.login(memberDTO);
+
+        if (loginResult != null){
+            HttpSession session = getSession(request);
+            session.setAttribute("id", loginResult);
+            return "redirect:/";
+        } else {
+            return "web/login/login.html";
+        }
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        HttpSession session = getSession(request);
+        if (session != null) {
+            session.invalidate();
+            System.out.println("Session invalidated successfully");
+        } else {
+            System.out.println("No session found to invalidate");
+        }
+        return "redirect:/";
+    }
+
+    @GetMapping("/signup")
+    public String signup(){
+        return "web/login/signup.html";
+    }
+
+    @PostMapping("/signup")
+    public String save(@ModelAttribute MemberDTO memberDTO){
+        memberService.save(memberDTO);
         return "web/login/login.html";
     }
 
@@ -22,39 +94,103 @@ public class WebController {
         return "web/login/mypage.html";
     }
 
-    @GetMapping("/signup")
-    public String signup(){
-        return "web/login/signup.html";
+    @GetMapping("/info")
+    public String info(){
+        return "web/guide/info.html";
     }
 
-    // 가이드
-    @GetMapping("/info")
-    public String info(){return "web/guide/info.html";}
-
     @GetMapping("/partners")
-    public String partners(){return "web/guide/partners.html";}
+    public String partners(){
+        return "web/guide/partners.html";
+    }
 
     @GetMapping("/waytocome")
-    public String waytocome(){return "web/guide/waytocome.html";}
+    public String waytocome(){
+        return "web/guide/waytocome.html";
+    }
 
-    // 참가 안내
     @GetMapping("/ongoing")
-    public String ongoing(){return "web/participation/ongoing.html";}
+    public String ongoing(Model model){
+        String query = "SELECT * FROM exhibition";
+        List<Exhibition> items = exhibitionService.getExhibition(query);
+
+        int itCount = 0;
+        int jobCount = 0;
+        int festivalCount = 0;
+        int academicCount = 0;
+        int scienceCount = 0;
+        int endCount = 0;
+        int consertCount = 0;
+
+        for (Exhibition item : items) {
+            int eDateResult = now.compareTo(item.getEnd_date().toLocalDate());
+            int sDateResult = now.compareTo(item.getStart_date().toLocalDate());
+
+            if (eDateResult > 0){
+                item.setType_("End");
+            }
+//            else if (sDateResult < 0){
+//                item.setType_("Not_Start");
+//            }
+
+            switch (item.getType_()){
+                case "IT": itCount++; break;
+                case "Job": jobCount++; break;
+                case "Festival": festivalCount++; break;
+                case "Academic": academicCount++; break;
+                case "Science": scienceCount++; break;
+                case "End": endCount++; break;
+                case "Consert": consertCount++; break;
+                default: break;
+            }
+        }
+
+        model.addAttribute("items", items);
+        model.addAttribute("ALL", items.size());
+        model.addAttribute("IT_Count", itCount);
+        model.addAttribute("Job_Count", jobCount);
+        model.addAttribute("End_Count", endCount);
+        model.addAttribute("Festival_Count", festivalCount);
+        model.addAttribute("Academic_Count", academicCount);
+        model.addAttribute("Science_Count", scienceCount);
+        model.addAttribute("Consert_Count", consertCount);
+        return "web/participation/ongoing.html";
+    }
 
     @GetMapping("/boothguide")
-    public String boothguide(){return "web/participation/boothguide.html";}
+    public String boothguide(){
+        return "web/participation/boothguide.html";
+    }
 
-    // 알림 마당
     @GetMapping("/faq")
-    public String faq(){return "web/notice/FAQ.html";}
+    public String faq(){
+        return "web/notice/FAQ.html";
+    }
 
     @GetMapping("/gallery")
-    public String gallery(){return "web/notice/gallery.html";}
+    public String gallery(){
+        return "web/notice/gallery.html";
+    }
 
     @GetMapping("/notice")
-    public String notice(){return "web/notice/notice.html";}
+    public String notice(){
+        return "web/notice/notice.html";
+    }
 
-    // 지난 박람회
     @GetMapping("/lastfair")
-    public String lastfair(){return "web/lastfair/lastfair.html";}
+    public String lastfair(){
+        return "web/lastfair/lastfair.html";
+    }
+
+    @GetMapping("/exhibition")
+    public String exhibition(){
+        return "web/exhibition.html";
+    }
+
+    private final ExhibitionJPAService exhibitionJPAService;
+    @PostMapping("/exhibition")
+    public String exhibitionPost(@ModelAttribute ExhibitionDTO exhibitionDTO){
+        exhibitionJPAService.save(exhibitionDTO);
+        return "web/exhibition.html";
+    }
 }

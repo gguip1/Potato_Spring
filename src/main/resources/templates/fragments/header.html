@@ -21,7 +21,7 @@
     <script type="module" src="src/active_menu.js" defer></script>
 
 <!-- Header -->
-<header class="header">
+<header class="header" style="background-color:black">
     <div class="header__logo">
       <img class="header__logo__img" src="images/logo.png" alt="logo" />
       <h1 class="header__logo__title"><a href="/">Potato</a></h1>
@@ -33,11 +33,11 @@
       <div id="menu">
         <ul class="header__menu">
           <li><a class="header__menu__item active" href="/">Home</a></li>
-          <li><a class="header__menu__item" href="/info">가이드</a>
+          <li><a class="header__menu__item" href="/info">Guide</a>
             <ul>
               <li><a href="/info">행사장 안내</a></li>
-              <li><a href="/waytocome">오시는 길</a></li>
-              <li><a href="partners">파트너스</a></li>
+              <li><a href="/waytocome">오시는길</a></li>
+              <li><a href="partners">Partners</a></li>
             </ul>
           </li>
           <li><a class="header__menu__item" href="/ongoing">참가 안내</a>
@@ -46,20 +46,20 @@
               <li><a href="/boothguide">부스 참가</a></li>
             </ul>
           </li>
-          <li><a class="header__menu__item" href="/notice">알림 마당</a>
+          <li><a class="header__menu__item" href="/notice">Notification</a>
             <ul>
-              <li><a href="/notice">공지 사항</a></li>
-              <li><a href="/gallery">갤러리</a></li>
-              <li><a href="/faq">자주 묻는 질문</a></li>
+              <li><a href="/notice">공지사항</a></li>
+              <li><a href="/gallery">Gallery</a></li>
+              <li><a href="/faq">FAQ</a></li>
             </ul>
           </li>
-          <li><a class="header__menu__item" href="/lastfair">지난 박람회</a>
-            <ul>
-              <li><a href="#">2023</a></li>
-              <li><a href="#">2022</a></li>
-              <li><a href="#">2021</a></li>
-            </ul>
-          <li><a class="header__menu__item" href="/login">로그인</a></li>
+          <li><a class="header__menu__item" href="/lastfair">Instagram</a>
+
+          <li>
+            <a th:if="${isLoggedIn}" class="header__menu__item" th:href="@{/logout}">Logout</a>
+            <a th:if="${!isLoggedIn}" class="header__menu__item" th:href="@{/login}">Login</a>
+        </li>
+
           </li>
         </ul>
       </div>

@@ -1,38 +1,38 @@
 package Potato.Potato_Spring.service;
 
-import Potato.Potato_Spring.domain.Member;
-import Potato.Potato_Spring.repository.JdbcMemberRepository;
+import Potato.Potato_Spring.dto.MemberDTO;
+import Potato.Potato_Spring.entity.MemberEntity;
 import Potato.Potato_Spring.repository.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class MemberService {
+
     private final MemberRepository memberRepository;
 
-    @Autowired
-    public MemberService(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
+    public void save(MemberDTO memberDTO){
+        MemberEntity memberEntity = MemberEntity.toMemberEntity(memberDTO);
+        memberRepository.save(memberEntity);
     }
 
-    public int signup(Member member){
+    public MemberDTO login(MemberDTO memberDTO) {
+        Optional<MemberEntity> byid = memberRepository.findByid(memberDTO.getId());
 
-        validateDuplicateMember(member);
-
-        memberRepository.save(member);
-        return member.getUserindex();
-    }
-
-    private void validateDuplicateMember(Member member) {
-        memberRepository.findById(member.getUserid())
-                .ifPresent(m -> {
-                    throw new IllegalStateException("이미 존재하는 회원입니다.");
-                });
-    }
-
-    private Optional<Member> findMember(String userid){
-        return memberRepository.findById(userid);
+        if(byid.isPresent()){
+            MemberEntity memberEntity = byid.get();
+            if(memberEntity.getPassword().equals(memberDTO.getPassword())){
+                MemberDTO dto = MemberDTO.toMemberDTO(memberEntity);
+                return dto;
+            }
+            else{
+                return null;
+            }
+        }else{
+            return null;
+        }
     }
 }

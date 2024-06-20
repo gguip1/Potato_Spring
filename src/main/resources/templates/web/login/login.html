@@ -13,14 +13,14 @@
     <th:block th:replace="~{fragments/header :: header}">  </th:block>
     <section>
         <div class="wrapper">
-            <form action="">
+            <form action="/login" method="post">
                 <h1>로그인</h1>
                 <div class="input_wrapper">
-                    <input type="text" required>
+                    <input type="text" name="id" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input_wrapper">
-                    <input type="password" required>
+                    <input type="password" name="password" required>
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
                 <button type="submit" class="login_btn">로그인</button>
