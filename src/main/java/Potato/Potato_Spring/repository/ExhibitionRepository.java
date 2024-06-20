@@ -7,6 +7,5 @@ import java.util.List;
 
 @Repository
 public interface ExhibitionRepository {
-
     List<Exhibition> getExhibition(String query);
 }

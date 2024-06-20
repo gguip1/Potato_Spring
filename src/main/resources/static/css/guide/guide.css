@@ -270,3 +270,99 @@
   .partner-apply .btn:hover {
     background-color: #0056b3;
   }
+
+  .partner-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.supporters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.supporters img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    object-fit: contain; /* Ensure images are properly contained */
+}
+.company-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+}
+
+.company-grid li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.company-grid img {
+  max-width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+.event-list .event-image {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.event-list .event-image img {
+  width: 100px;
+  height: 100px;
+}
+
+.marketing-kit {
+  text-align: center;
+  padding: 20px;
+}
+
+.marketing-kit h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.promo-content {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.promo-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.downloads {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.download-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.download-item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.download-item img {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 10px;
+}

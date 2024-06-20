@@ -1,7 +1,9 @@
 package Potato.Potato_Spring.controller;
 
 import Potato.Potato_Spring.domain.Exhibition;
+import Potato.Potato_Spring.dto.ExhibitionDTO;
 import Potato.Potato_Spring.dto.MemberDTO;
+import Potato.Potato_Spring.service.ExhibitionJPAService;
 import Potato.Potato_Spring.service.ExhibitionService;
 import Potato.Potato_Spring.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -39,7 +41,7 @@ public class WebController {
 
     @GetMapping("/")
     public String index(Model model){
-        String query = "SELECT * FROM exhibition WHERE end_date >= CURRENT_DATE() ORDER BY start_date DESC LIMIT 8";
+        String query = "SELECT * FROM exhibition WHERE end_date >= CURRENT_DATE() ORDER BY start_date ASC LIMIT 8";
         List<Exhibition> items = exhibitionService.getExhibition(query);
 
         model.addAttribute("items", items);
@@ -115,6 +117,10 @@ public class WebController {
         int itCount = 0;
         int jobCount = 0;
         int festivalCount = 0;
+        int academicCount = 0;
+        int scienceCount = 0;
+        int endCount = 0;
+        int consertCount = 0;
 
         for (Exhibition item : items) {
             int eDateResult = now.compareTo(item.getEnd_date().toLocalDate());
@@ -131,6 +137,10 @@ public class WebController {
                 case "IT": itCount++; break;
                 case "Job": jobCount++; break;
                 case "Festival": festivalCount++; break;
+                case "Academic": academicCount++; break;
+                case "Science": scienceCount++; break;
+                case "End": endCount++; break;
+                case "Consert": consertCount++; break;
                 default: break;
             }
         }
@@ -139,7 +149,11 @@ public class WebController {
         model.addAttribute("ALL", items.size());
         model.addAttribute("IT_Count", itCount);
         model.addAttribute("Job_Count", jobCount);
+        model.addAttribute("End_Count", endCount);
         model.addAttribute("Festival_Count", festivalCount);
+        model.addAttribute("Academic_Count", academicCount);
+        model.addAttribute("Science_Count", scienceCount);
+        model.addAttribute("Consert_Count", consertCount);
         return "web/participation/ongoing.html";
     }
 
@@ -166,5 +180,17 @@ public class WebController {
     @GetMapping("/lastfair")
     public String lastfair(){
         return "web/lastfair/lastfair.html";
+    }
+
+    @GetMapping("/exhibition")
+    public String exhibition(){
+        return "web/exhibition.html";
+    }
+
+    private final ExhibitionJPAService exhibitionJPAService;
+    @PostMapping("/exhibition")
+    public String exhibitionPost(@ModelAttribute ExhibitionDTO exhibitionDTO){
+        exhibitionJPAService.save(exhibitionDTO);
+        return "web/exhibition.html";
     }
 }

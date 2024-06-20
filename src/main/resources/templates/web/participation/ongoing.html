@@ -61,6 +61,26 @@
                         Festival <span class="category__count" th:text="${Festival_Count}"></span>
                     </button>
                 </li>
+                <li>
+                    <button class="category" data-category="Academic">
+                        Academic <span class="category__count" th:text="${Academic_Count}"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="category" data-category="Science">
+                        Science <span class="category__count" th:text="${Science_Count}"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="category" data-category="Consert">
+                        Consert <span class="category__count" th:text="${Consert_Count}"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="category" data-category="End">
+                        종료된 박람회 <span class="category__count" th:text="${End_Count}"></span>
+                    </button>
+                </li>
             </ul>
             <ul class="projects">
                 <li th:each="item : ${items}" class="project" th:attr="data-type=${item.type_}">

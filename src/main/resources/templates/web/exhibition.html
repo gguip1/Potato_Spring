@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박람회 등록</title>
+    <link rel="stylesheet" href="css/color.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/login/login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<th:block th:replace="~{fragments/header :: header}">  </th:block>
+<section>
+    <div class="wrapper">
+        <form action="/exhibition" method="post">
+            <h1>박람회 등록</h1>
+            <div class="input_wrapper">
+                <label for="" class="label_text">제목</label>
+                <input type="text" name="title" required>
+            </div>
+            <div class="input_wrapper">
+                <label for="" class="label_text">이미지</label>
+                <input type="text" name="img" required>
+            </div>
+            <div class="input_wrapper">
+                <label for="" class="label_text">주소</label>
+                <input type="text" name="url" required>
+            </div>
+            <div class="input_wrapper">
+                <label for="" class="label_text">타입</label>
+                <input type="text" name="type_" required>
+            </div>
+            <div class="input_wrapper">
+                <label for="" class="label_text">시작 날짜</label>
+                <input type="date" name="start_date" required>
+            </div>
+            <div class="input_wrapper">
+                <label for="" class="label_text">끝 날짜</label>
+                <input type="date" name="end_date" required>
+            </div>
+            <button type="submit" class="login_btn">등록</button>
+        </form>
+    </div>
+</section>
+<th:block th:replace="~{fragments/footer :: footer}">  </th:block>
+</body>
+</html>
