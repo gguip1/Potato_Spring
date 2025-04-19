@@ -14,7 +14,7 @@
 | 🧑‍💻 서재원 | 데이터 수집, 프론트엔드 |  | - |
 | 🧑‍💻 손창민 | 데이터 수집, 프론트엔드 |  | [@aronmin](https://github.com/aronmin) |
 | 🧑‍💻 이상민 | UI 디자인, 프론트엔드 |  | [@Lsmini](https://github.com/Lsmini) |
-| 🧑‍💻 이한세 | UI 디자인, 프론트엔드드 |  | - |
+| 🧑‍💻 이한세 | UI 디자인, 프론트엔드 |  | - |
 
 ## ✨ 주요 기능
 
@@ -24,14 +24,14 @@
 
 ## 📚 기술 스택
 ### 🖥️ Frontend  
-![Android]()
-![Java]()
+![Java](https://img.shields.io/badge/Java-007396?style=flat&logo=jav&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white)
 
 🔗 [애플리케이션](https://github.com/gguip1/GamjaProject_Now)
 
 ### 🛠️ Backend  
+![Java](https://img.shields.io/badge/Java-007396?style=flat&logo=jav&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat&logo=spring-boot&logoColor=white)
-
 ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=flat&logo=mariadb&logoColor=white)
 
 ### 🚀 Deployment  
@@ -41,33 +41,20 @@
 
 ![시스템 구성도](./assets/systemArchitecture.png)
 
-## 🗂️ 메뉴 구성도
-![메뉴 구성도](./assets/menuStructure.png)
+## 🗂️ 데이터베이스
+![데이터베이스](./assets/databaseSchema.png)
+
+## 📦 API 명세서
+![API 명세서](./assets/apiDocsPostMan.png)
 
 ## 📸 스크린샷
 
-- **헤더(Header)**
+<p align="center">
+  <img src="./assets/mainPage.png" alt="메인 화면" width="45%"/>
+  <img src="./assets/detailPage.png" alt="자세히 보기 화면" width="45%"/>
+</p>
 
-사이트 상단의 내비게이션 바로, 전체 페이지에서 공통적으로 사용됩니다.
-
-![헤더](./assets/header.png)
-
-- **푸터(Footer)**
-
-사이트 하단의 정보 및 링크 영역입니다.
-
-![푸터](./assets/footer.png)
-
-- **메인(Main)**
-
-사이트의 메인 페이지로, 박람회 정보를 간략하게 소개합니다.
-
-![메인](./assets/main.png)
-
-- **진행중인 박람회**
-
-현재 진행 중인 박람회 정보를 보여줍니다.
-
-![진행중인 박람회](./assets/exhibition.png)
-
----
+## Preview
+<p align="center">
+  <img src="./assets/preview.gif" alt="Preview" width="35%"/>
+</p>
