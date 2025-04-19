@@ -54,7 +54,7 @@
   <img src="./assets/detailPage.png" alt="자세히 보기 화면" width="25%"/>
 </p>
 
-## Preview
+## 📸 Preview
 <p align="center">
   <img src="./assets/preview.gif" alt="Preview" width="25%"/>
 </p>
