@@ -50,11 +50,11 @@
 ## 📸 스크린샷
 
 <p align="center">
-  <img src="./assets/mainPage.png" alt="메인 화면" width="45%"/>
-  <img src="./assets/detailPage.png" alt="자세히 보기 화면" width="45%"/>
+  <img src="./assets/mainPage.png" alt="메인 화면" width="25%"/>
+  <img src="./assets/detailPage.png" alt="자세히 보기 화면" width="25%"/>
 </p>
 
 ## Preview
 <p align="center">
-  <img src="./assets/preview.gif" alt="Preview" width="35%"/>
+  <img src="./assets/preview.gif" alt="Preview" width="25%"/>
 </p>
